@@ -1,0 +1,17 @@
+F:\WPF\LoginForm\LoginFormWPF\bin\Debug\LoginFormWPF.exe.config
+F:\WPF\LoginForm\LoginFormWPF\bin\Debug\LoginFormWPF.exe
+F:\WPF\LoginForm\LoginFormWPF\bin\Debug\LoginFormWPF.pdb
+F:\WPF\LoginForm\LoginFormWPF\obj\Debug\LoginFormWPF.csproj.SuggestedBindingRedirects.cache
+F:\WPF\LoginForm\LoginFormWPF\obj\Debug\MainWindow.g.cs
+F:\WPF\LoginForm\LoginFormWPF\obj\Debug\View\LoginView.g.cs
+F:\WPF\LoginForm\LoginFormWPF\obj\Debug\App.g.cs
+F:\WPF\LoginForm\LoginFormWPF\obj\Debug\LoginFormWPF_MarkupCompile.cache
+F:\WPF\LoginForm\LoginFormWPF\obj\Debug\LoginFormWPF_MarkupCompile.lref
+F:\WPF\LoginForm\LoginFormWPF\obj\Debug\MainWindow.baml
+F:\WPF\LoginForm\LoginFormWPF\obj\Debug\View\LoginView.baml
+F:\WPF\LoginForm\LoginFormWPF\obj\Debug\LoginFormWPF.g.resources
+F:\WPF\LoginForm\LoginFormWPF\obj\Debug\LoginFormWPF.Properties.Resources.resources
+F:\WPF\LoginForm\LoginFormWPF\obj\Debug\LoginFormWPF.csproj.GenerateResource.cache
+F:\WPF\LoginForm\LoginFormWPF\obj\Debug\LoginFormWPF.csproj.CoreCompileInputs.cache
+F:\WPF\LoginForm\LoginFormWPF\obj\Debug\LoginFormWPF.exe
+F:\WPF\LoginForm\LoginFormWPF\obj\Debug\LoginFormWPF.pdb
