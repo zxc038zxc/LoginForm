@@ -15,3 +15,8 @@ F:\WPF\LoginForm\LoginFormWPF\obj\Debug\LoginFormWPF.csproj.GenerateResource.cac
 F:\WPF\LoginForm\LoginFormWPF\obj\Debug\LoginFormWPF.csproj.CoreCompileInputs.cache
 F:\WPF\LoginForm\LoginFormWPF\obj\Debug\LoginFormWPF.exe
 F:\WPF\LoginForm\LoginFormWPF\obj\Debug\LoginFormWPF.pdb
+F:\WPF\LoginForm\LoginFormWPF\obj\Debug\GeneratedInternalTypeHelper.g.cs
+F:\WPF\LoginForm\LoginFormWPF\obj\Debug\CustomControl\BindablePwdBoxControl.g.cs
+F:\WPF\LoginForm\LoginFormWPF\obj\Debug\CustomControl\BindablePwdBoxControl.baml
+F:\WPF\LoginForm\LoginFormWPF\obj\Debug\View\MainView.g.cs
+F:\WPF\LoginForm\LoginFormWPF\obj\Debug\View\MainView.baml

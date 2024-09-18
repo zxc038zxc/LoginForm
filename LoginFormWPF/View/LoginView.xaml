@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LoginFormWPF.View"
+        xmlns:viewModel="clr-namespace:LoginFormWPF.ViewModel" xmlns:customcontrol="clr-namespace:LoginFormWPF.CustomControl"
         mc:Ignorable="d"
         Title="LoginView" Height="550" Width="800"
         WindowStyle="None"
@@ -12,9 +13,17 @@
         MouseDown="Window_MouseDown"
         Background="Transparent"
         AllowsTransparency="True">
+    <Window.DataContext>
+        <viewModel:LoginViewModel/>
+    </Window.DataContext>
     <Window.Resources>
-        <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibility"/>
     </Window.Resources>
+    <!--綁定IsViewVisible控制視窗可見-->
+    <!--TwoWay雙向綁定。當IsViewVisible在VM變更時，自動更新UI；UI更新時，自動更新VM的IsViewVisible-->
+    <Window.Visibility>
+        <Binding Path="IsViewVisible" Mode="TwoWay" Converter="{StaticResource BooleanToVisibility}"/>
+    </Window.Visibility>
     <Border CornerRadius="10">
         <Border.Background>
             <ImageBrush ImageSource="/Image/loginBg.png" Stretch="UniformToFill"/>
@@ -121,13 +130,14 @@
 
                     <TextBlock Text="USER LOGIN" 
                                Foreground="DarkBlue"
-                               FontSize="18"
+                               FontSize="16"
                                FontWeight="Bold"
                                FontFamily="Montserrat"
                                Margin="0,20,0,0"
                                HorizontalAlignment="Center"/>
 
                     <TextBox x:Name="TxtUser"
+                             Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged}"
                              FontSize="13"
                              FontWeight="Medium" 
                              FontFamily="Montserrat"
@@ -136,7 +146,7 @@
                              BorderThickness="0,0,0,1"
                              Width="150"
                              Height="20"
-                             Margin="0,5"
+                             Margin="0,15,0,10"
                              Padding="20,0,0,0"
                              VerticalAlignment="Bottom">
                         <TextBox.Background>
@@ -144,32 +154,29 @@
                         </TextBox.Background>
                     </TextBox>
 
-                    <PasswordBox x:Name="TxtPwd"
-                             FontSize="13"
-                             FontWeight="Medium"
-                             FontFamily="Montserrat"
-                             Foreground="Black"
-                             CaretBrush="LightGray"
-                             BorderThickness="0,0,0,1"
-                             VerticalContentAlignment="Bottom"
-                             Width="150"
-                             Height="20"
-                             Margin="0,5"
-                             Padding="20,0,0,0">
-                        <PasswordBox.Background>
-                            <ImageBrush ImageSource="/Image/key-icon.png" Stretch="None" AlignmentX="Left"/>
-                        </PasswordBox.Background>
-                    </PasswordBox>
+                    <!--WPF默認不支持綁定到VM的SecureString，因為密碼通常不能以明文形式存在於數據綁定中-->
+                    <!--通過自定義UserControl，設計雙向綁定，實現數據傳遞。利用依賴屬性來同步到ViewModel-->
+                    <customcontrol:BindablePwdBoxControl Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                         Height="20" Width="150" Margin="0,5">
+                    </customcontrol:BindablePwdBoxControl>
 
-
+                    <TextBlock Text="{Binding ErrorMsg}" 
+                               Foreground="#D75960"
+                               FontSize="12"
+                               FontWeight="Bold"
+                               FontFamily="Montserrat"
+                               Margin="0,5,0,0"
+                               HorizontalAlignment="Center"
+                               TextWrapping="Wrap"/>
+                    
                     <Button x:Name ="BtnLogin"
+                            Command="{Binding LoginCommand}"
                             BorderThickness="0"
-                            Content="X"
+                            Content="LOG IN"
                             Foreground="White"
                             FontSize="16"
                             FontWeight="Bold"
                             Cursor="Hand"
-                            Click="BtnLogin_Click"
                             Margin="0,25,0,0">
                         <Button.Style>
                             <Style TargetType="Button">
